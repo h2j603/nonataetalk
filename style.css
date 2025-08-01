@@ -1,0 +1,179 @@
+@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+@font-face {
+    font-family: 'BookkMyungjo-Bd';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 파티클 캔버스 */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: black;
+}
+
+body {
+    position: relative; 
+    font-family: 'Wanted Sans Variable', sans-serif;
+    font-weight: 900;
+    color: grey;
+    overflow: hidden;
+    line-height: 1.7;
+    word-break: keep-all;
+    cursor: pointer;
+}
+
+.inline-link {
+    text-decoration: none;
+    animation: mymove 5s ease-in-out infinite;
+    animation-name: fade;
+    animation-duration: 2s;
+    cursor: help;
+}
+
+@keyframes fade {
+    0%   { opacity: 1; }
+    60%  { opacity: 0.01; }
+    80%  { opacity: 0.01; }
+    100% { opacity: 1; }
+}
+a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    color: grey;
+    text-decoration: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 10;
+    display: none; /* 기본적으로 모두 숨김 */
+}
+
+a:visited {
+    color: grey;
+}
+
+a.active {
+    display: flex; /* active 클래스가 있을 때만 보임 */
+}
+
+/* 컨테이너 레이아웃 */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+     z-index: 2; /* 이 줄 추가 */
+    position: relative;
+}
+
+/* 본문 영역 */
+.main-content {
+    width: calc(100% - 250px);
+    padding: 50px 40px 50px 60px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* 스크롤바 숨기기 */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* 사이드바 영역 (각주 + 이미지) */
+.sidebar {
+    margin-top:70px;
+    width: 450px;
+    padding: 50px 40px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
+        /* 스크롤바 숨기기 */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+h1 {
+    font-size: 15pt;
+    font-weight: 900;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 25pt;
+    font-weight: 900;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: left;
+    font-weight: 900;
+    font-size: 25pt;
+    margin-bottom: 20px;
+}
+
+b {
+    color: Gainsboro;
+}
+
+/* 각주 스타일 */
+.footnote {
+    font-size: 13pt;
+    font-family: 'BookkMyungjo-Bd';
+    font-weight: 700;
+    color: Gainsboro;
+    margin-bottom: 20px;
+  
+}
+
+
+
+/* 이미지 영역 */
+.image-area {
+    margin-top: 30px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+/* 반응형 */
+@media screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .main-content {
+        width: 100%;
+        padding: 50px 40px;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #333;
+        padding: 20px;
+    }
+    
+    h2, p {
+        font-size: 20pt;
+    }
+}
+
+
+    
